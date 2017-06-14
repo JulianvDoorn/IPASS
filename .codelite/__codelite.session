@@ -1,42 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Session Name="/home/julian/Documents/oopc-practica/v1oopc-practica/__codelite.workspace">
-  <int Value="0" Name="m_selectedTab"/>
-  <wxString Value="/home/julian/Documents/oopc-practica/v1oopc-practica/__codelite.workspace" Name="m_workspaceName"/>
+<Session Name="/home/julian/Documents/oopc-practica/IPASS/__codelite.workspace">
+  <int Value="5" Name="m_selectedTab"/>
+  <wxString Value="/home/julian/Documents/oopc-practica/IPASS/__codelite.workspace" Name="m_workspaceName"/>
   <TabInfoArray Name="TabInfoArray">
     <TabInfo>
-      <wxString Value="/home/julian/Documents/oopc-practica/v1oopc-practica/IPASS/main.cpp" Name="FileName"/>
-      <int Value="66" Name="FirstVisibleLine"/>
-      <int Value="78" Name="CurrentLine"/>
-      <wxArrayString Name="Bookmarks">
-        <wxString Value="85:3"/>
-      </wxArrayString>
-      <IntVector Name="CollapsedFolds"/>
-    </TabInfo>
-    <TabInfo>
-      <wxString Value="/home/julian/Documents/oopc-practica/v1oopc-practica/IPASS/rgb_port.hpp" Name="FileName"/>
-      <int Value="0" Name="FirstVisibleLine"/>
-      <int Value="21" Name="CurrentLine"/>
+      <wxString Value="/home/julian/Documents/oopc-practica/IPASS/IPASS/main.cpp" Name="FileName"/>
+      <int Value="22" Name="FirstVisibleLine"/>
+      <int Value="52" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
     <TabInfo>
-      <wxString Value="/home/julian/Documents/oopc-practica/v1oopc-practica/IPASS/address_port.hpp" Name="FileName"/>
+      <wxString Value="/home/julian/Documents/oopc-practica/IPASS/IPASS/rgb_matrix.hpp" Name="FileName"/>
       <int Value="0" Name="FirstVisibleLine"/>
-      <int Value="9" Name="CurrentLine"/>
+      <int Value="17" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
     <TabInfo>
-      <wxString Value="/home/julian/Documents/oopc-practica/v1oopc-practica/IPASS/address_port.cpp" Name="FileName"/>
+      <wxString Value="/home/julian/Documents/oopc-practica/IPASS/IPASS/rgb_matrix.cpp" Name="FileName"/>
+      <int Value="0" Name="FirstVisibleLine"/>
+      <int Value="3" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="/home/julian/Documents/oopc-practica/IPASS/IPASS/rgb_matrix_part.hpp" Name="FileName"/>
       <int Value="0" Name="FirstVisibleLine"/>
       <int Value="0" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
     <TabInfo>
-      <wxString Value="/home/julian/Documents/oopc-practica/v1oopc-practica/IPASS/rgb_port.cpp" Name="FileName"/>
+      <wxString Value="/home/julian/Documents/oopc-practica/IPASS/IPASS/rgb_matrix_port.hpp" Name="FileName"/>
       <int Value="0" Name="FirstVisibleLine"/>
-      <int Value="0" Name="CurrentLine"/>
+      <int Value="15" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="/home/julian/Documents/oopc-practica/IPASS/IPASS/rgb_pins.hpp" Name="FileName"/>
+      <int Value="0" Name="FirstVisibleLine"/>
+      <int Value="18" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>

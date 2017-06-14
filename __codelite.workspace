@@ -1,42 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<CodeLite_Workspace Name="example code" Database="" Version="10.0.0">
-  <Project Name="template-native" Path="template-native/_codelite.project" Active="No"/>
-  <Project Name="week-1" Path="week-1/week-1.project" Active="No"/>
-  <Project Name="week-3" Path="week-3/week-3.project" Active="No"/>
-  <Project Name="week-2-vector" Path="week-2-vector/week-2-vector.project" Active="No"/>
-  <Project Name="week-2-rational" Path="week-2-rational/week-2-rational.project" Active="No"/>
-  <Project Name="template-due" Path="template-due/template-due.project" Active="No"/>
-  <Project Name="week-4-kitt" Path="week-4-kitt/week-4-kitt.project" Active="No"/>
-  <Project Name="week-4-button" Path="week-4-button/week-4-button.project" Active="No"/>
-  <BuildMatrix>
-    <WorkspaceConfiguration Name="Release" Selected="yes">
-      <Environment/>
-      <Project Name="template-due" ConfigName="Debug"/>
-      <Project Name="template-native" ConfigName="Debug"/>
-      <Project Name="week-1" ConfigName="Debug"/>
-      <Project Name="week-2-rational" ConfigName="Debug"/>
-      <Project Name="week-2-vector" ConfigName="Debug"/>
-      <Project Name="week-3" ConfigName="Debug"/>
-      <Project Name="template-due" ConfigName="Release"/>
-      <Project Name="week-4-button" ConfigName="Release"/>
-    </WorkspaceConfiguration>
-  </BuildMatrix>
-  <Project Name="testing" Path="testing/testing.project" Active="No"/>
-  <BuildMatrix>
-    <WorkspaceConfiguration Name="Release" Selected="yes">
-      <Environment/>
-      <Project Name="week-2-vector" ConfigName="Release"/>
-      <Project Name="testing" ConfigName="Release"/>
-    </WorkspaceConfiguration>
-  </BuildMatrix>
+<CodeLite_Workspace Name="IPASS" Database="" Version="10.0.0">
   <Project Name="IPASS" Path="IPASS/IPASS.project" Active="Yes"/>
   <BuildMatrix>
     <WorkspaceConfiguration Name="Release" Selected="yes">
       <Environment/>
-      <Project Name="week-2-rational" ConfigName="Release"/>
-      <Project Name="week-5" ConfigName="Release"/>
-      <Project Name="week-4" ConfigName="Release"/>
-      <Project Name="week-4-kitt" ConfigName="Release"/>
       <Project Name="IPASS" ConfigName="Release"/>
     </WorkspaceConfiguration>
   </BuildMatrix>

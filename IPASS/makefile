@@ -9,10 +9,10 @@
 #############################################################################
 
 # source files in this project (main.cpp is automatically assumed)
-SOURCES :=
+SOURCES := rgb_matrix.cpp
 
 # header files in this project
-HEADERS :=
+HEADERS := rgb_matrix.hpp rgb_matrix_part.hpp rgb_matrix_port.hpp rgb_pins.hpp
 
 # other places to look for files for this project
 SEARCH  := 
