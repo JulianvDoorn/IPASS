@@ -31,12 +31,16 @@
   <VirtualDirectory Name="src">
     <File Name="main.cpp"/>
     <File Name="rgb_matrix.cpp"/>
+    <File Name="makefile"/>
   </VirtualDirectory>
   <VirtualDirectory Name="include">
     <File Name="rgb_matrix.hpp"/>
     <File Name="rgb_matrix_part.hpp"/>
     <File Name="rgb_matrix_port.hpp"/>
     <File Name="rgb_pins.hpp"/>
+    <File Name="graphics_drawer.hpp"/>
+    <File Name="pixel_drop.hpp"/>
+    <File Name="updating_drawable.hpp"/>
   </VirtualDirectory>
   <Settings Type="Dynamic Library">
     <GlobalSettings>

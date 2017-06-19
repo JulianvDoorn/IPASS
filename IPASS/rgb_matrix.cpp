@@ -1,24 +1,30 @@
 #include "rgb_matrix.hpp"
 
+void rgb_matrix::write_implementation(hwlib::location l, hwlib::color c, hwlib::buffering buf = hwlib::buffering::unbuffered) {
+	c = hwlib::color(c.red, c.green, c.blue);
+	
+	if (l.y < 8) {
+		top.write(l, c);
+	} else if (l.y  < 16) {
+		bottom.write(l - hwlib::location(0, 8), c);
+	}
+}
+
 void rgb_matrix::show_frame() {
-//	hwlib::cout << "show frame" << hwlib::endl;
+	for (uint_fast16_t i = 0; i < drawings_c; i++) {
+		drawings[i]->draw(*this);
+	}
+	
 	for (uint_fast8_t c = 1; c <= 4; c++) {
-//		hwlib::cout << "show frame"  << c << hwlib::endl;
 		for (uint_fast8_t y = 0; y < 8; y++) {
 			port.output_enabled.set(0);
-//			hwlib::cout << "oof? Y:"   << y << hwlib::endl;
 
 			for (uint_fast8_t x = 0; x < 32; x++) {
-//				hwlib::cout << "oof? X:"   << x << hwlib::endl;
 				uint_fast8_t r = top.pixels[y][x].red;
 				uint_fast8_t g = top.pixels[y][x].green;
 				uint_fast8_t b = top.pixels[y][x].blue;
-//				hwlib::cout << "oof? X:"   << x << hwlib::endl;
 				uint_fast8_t rgb = (r >= c) << 2 | (g >= c) << 1 | (b >= c);
-//				hwlib::cout << "oof? RGB:"   << rgb << hwlib::endl;
 				top.emit(rgb);
-//				hwlib::cout << "did I set RGB?" << hwlib::endl;
-				
 
 				r = bottom.pixels[y][x].red;
 				g = bottom.pixels[y][x].green;
@@ -47,20 +53,10 @@ void rgb_matrix::loop() {
 
 void rgb_matrix::flush() {}
 
-void rgb_matrix::write(hwlib::location pos, hwlib::color col, hwlib::buffering buf) {
-	if (pos.y < 8) {
-		top.write(pos, col);
-	} else if (pos.y  < 16) {
-		bottom.write(pos - hwlib::location(0, 8), col);
-	}
-}
-
-void rgb_matrix::write(hwlib::location pos, const hwlib::image& img, hwlib::buffering buf) {}
-
-void rgb_matrix::write(hwlib::location pos, hwlib::buffering buf) {
-	write(pos, foreground);
-}
-
 void rgb_matrix::clear(hwlib::buffering buf) {
-	
+	for (uint_fast8_t y = 0; y < size.y; y++) {
+		for (uint_fast8_t x = 0; x < size.x; x++) {
+			write_implementation(hwlib::location(x, y), background);
+		}
+	}
 }

@@ -1,4 +1,3 @@
-#include <hwlib-wait.hpp>
 #include <hwlib.hpp>
 
 #include "rgb_matrix.hpp"
@@ -29,28 +28,40 @@ int main() {
 	auto clock = hwlib::target::pin_out(hwlib::target::pins::d47);
 	auto latch = hwlib::target::pin_out(hwlib::target::pins::d45);
 	auto output_enabled = hwlib::target::pin_out(hwlib::target::pins::d43);
-	
+
 	auto my_rgb_port = rgb_matrix_port(rgb0, rgb1, my_address_port, clock, latch, output_enabled);
 	auto my_window = rgb_matrix(my_rgb_port);
 
-	for (;;) {
-		int rgb = 0;
+	auto my_circle = hwlib::circle(hwlib::location(5, 5), 3, hwlib::blue, hwlib::black);
+	auto my_line = hwlib::line(hwlib::location(0, 0), hwlib::location(0, 3), hwlib::red);
 
-		for (int y = 0; y < 16; y++) {
-			for (int x = 0; x < 32; x++) {
-				
-				int r = rgb >> 4 & 0b11;
-				int g = rgb >> 2 & 0b11;
-				int b = rgb & 0b11;
-				
-//				hwlib:: cout << r << g << b << hwlib::endl;
-				
-				my_window.write(hwlib::location(x, y), hwlib::color(r, g, b));
+	//my_window << my_line;
+
+	hwlib::location l = hwlib::location(0, 0);
+	auto f = hwlib::font_default_8x8();
+
+	hwlib::window_ostream window_out = hwlib::window_ostream(my_window, f);
+
+	uint_fast8_t rgb = 1;
+
+	while (true) {
+		for (int i = 0; i < 32; i++) {
+			my_window.write(l, hwlib::color(rgb >> 4 & 0b11, rgb >> 2 & 0b11, rgb & 0b11));
+			
+			if (l.x < 31) {
+				l = l + hwlib::location(1, 0);
+			} else if (l.y >= 15) {
+				l = hwlib::location(0, 0);
 				rgb++;
+				hwlib::cout << rgb << hwlib::endl;
+			} else {
+				l = hwlib::location(0, l.y + 1);
 			}
 		}
 
-//		hwlib::cout << "la" << hwlib::endl;
+		if (rgb > 0b111111) {
+			rgb = 1;
+		}
 
 		my_window.show_frame();
 	}

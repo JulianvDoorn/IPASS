@@ -1,6 +1,5 @@
-#ifndef RGB_MATRIX_PART_HPP
-#define RGB_MATRIX_PART_HPP
-
+#pragma once
+#include <hwlib.hpp>
 #include "rgb_pins.hpp"
 
 class rgb_matrix_part {
@@ -22,10 +21,6 @@ class rgb_matrix_part {
 	}
 	
 	void emit(uint_fast8_t v) {
-//		hwlib::cout << "emitting: " << v << hwlib::endl;
 		rgb.set(v);
-//		hwlib::cout << "returned" << hwlib::endl;
 	}
 };
-
-#endif
