@@ -9,7 +9,7 @@
 #############################################################################
 
 # source files in this project (main.cpp is automatically assumed)
-SOURCES := rgb_matrix.cpp
+SOURCES := rgb_matrix.cpp graphics_drawer.cpp image_invert.cpp image_rainbow.cpp rainbow_text_label.cpp text_label.cpp
 
 # header files in this project
 HEADERS := graphics_drawer.hpp image_invert.hpp image_rainbow.hpp rainbow.hpp rainbow_text_label.hpp

@@ -19,13 +19,7 @@ class image_rainbow : public hwlib::image {
 	const hwlib::image& slave;
 	uint_fast8_t& iteration_n;
 
-	hwlib::color get_implementation(hwlib::location pos) const override {
-		if (slave[pos].rgb() != 0x000000) {
-			return rainbow[(pos.x + pos.y + iteration_n) % 14];
-		} else {
-			return hwlib::black;
-		}
-	}
+	hwlib::color get_implementation(hwlib::location pos) const override;
 
 	public:
 	/**

@@ -32,6 +32,11 @@
     <File Name="main.cpp"/>
     <File Name="rgb_matrix.cpp"/>
     <File Name="makefile"/>
+    <File Name="graphics_drawer.cpp"/>
+    <File Name="image_invert.cpp"/>
+    <File Name="image_rainbow.cpp"/>
+    <File Name="rainbow_text_label.cpp"/>
+    <File Name="text_label.cpp"/>
   </VirtualDirectory>
   <VirtualDirectory Name="include">
     <File Name="rgb_matrix.hpp"/>
