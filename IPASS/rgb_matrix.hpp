@@ -38,5 +38,5 @@ public:
 	 * @brief Resets all the pixels to the background color specified inside the constructor
 	 * @param buf Doesn't affect anything
 	 */
-	virtual void clear(hwlib::buffering buf = hwlib::buffering::unbuffered);
+	virtual void clear(const hwlib::buffering buf = hwlib::buffering::unbuffered);
 };

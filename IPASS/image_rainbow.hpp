@@ -5,7 +5,7 @@
 class image_rainbow : public hwlib::image {
 	private:
 	const hwlib::image& slave;
-	uint_fast8_t& iteration_n;
+	const uint_fast8_t& iteration_n;
 
 	hwlib::color get_implementation(hwlib::location pos) const override {
 		if (slave[pos].rgb() != 0x000000) {
@@ -23,5 +23,5 @@ class image_rainbow : public hwlib::image {
 	 * @param slave Slave image to apply decorator to
 	 * @param iteration_n Reference to uint_fast8_t to set the rainbow position
 	 */
-	image_rainbow(const hwlib::image& slave, uint_fast8_t& iteration_n) : hwlib::image(slave.size), slave(slave), iteration_n(iteration_n) {}
+	image_rainbow(const hwlib::image& slave, const uint_fast8_t& iteration_n) : hwlib::image(slave), slave(slave), iteration_n(iteration_n) {}
 };

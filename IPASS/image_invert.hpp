@@ -15,5 +15,5 @@ class image_invert : public hwlib::image {
 	 * @brief Constructs an inversion decorator for images
 	 * @param slave Existing image to invert
 	 */
-	image_invert(const hwlib::image& slave) : hwlib::image(slave.size), slave(slave) {}
+	image_invert(const hwlib::image& slave) : hwlib::image(slave), slave(slave) {}
 };

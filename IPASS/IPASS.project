@@ -41,9 +41,14 @@
     <File Name="graphics_drawer.hpp"/>
     <File Name="updating_drawable.hpp"/>
     <File Name="image_invert.hpp"/>
-    <File Name="rainbow_font.hpp"/>
     <File Name="rainbow.hpp"/>
     <File Name="image_rainbow.hpp"/>
+    <File Name="text_label.hpp"/>
+    <File Name="rainbow_text_label.hpp"/>
+    <File Name="window_offset.hpp"/>
+    <File Name="updating_text_label.hpp"/>
+    <File Name="updating_text_slide.hpp"/>
+    <File Name="text_slide.hpp"/>
   </VirtualDirectory>
   <Settings Type="Dynamic Library">
     <GlobalSettings>

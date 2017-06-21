@@ -33,7 +33,7 @@ public:
 	 * @brief Passes the rgb_pins instance a 3 bit color value 
 	 * @param c 3 bit color value
 	 */
-	void emit(uint_fast8_t c) {
+	void emit(const uint_fast8_t c) {
 		rgb.set(c);
 	}
 };

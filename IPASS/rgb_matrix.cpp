@@ -12,12 +12,13 @@ void rgb_matrix::write_implementation(hwlib::location l, hwlib::color c, hwlib::
 }
 
 void rgb_matrix::show_frame() {
+	clear();
 	update_all();
 	draw_all();
 	
-	for (uint_fast8_t c = 1; c <= 3; c++) {
+	for (uint_fast8_t c = 1; c <= 4; c++) {
 		for (uint_fast8_t y = 0; y < 8; y++) {
-			port.output_enabled.set(0);
+			
 
 			for (uint_fast8_t x = 0; x < 32; x++) {
 				uint_fast8_t r = top.pixels[y][x].red;
@@ -41,6 +42,7 @@ void rgb_matrix::show_frame() {
 			port.address.set(y);
 			port.latch.set(1);
 			port.latch.set(0);
+			port.output_enabled.set(0);
 		}
 	}
 }

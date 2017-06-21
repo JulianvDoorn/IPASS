@@ -1,9 +1,11 @@
 #include <hwlib.hpp>
 
-#include "rainbow_font.hpp"
+#include "rainbow.hpp"
+#include "rainbow_text_label.hpp"
 #include "rgb_matrix.hpp"
 #include "rgb_pins.hpp"
-#include "rainbow.hpp"
+#include "updating_text_slide.hpp"
+#include "text_slide.hpp"
 
 int main() {
 	// kill the watchdog
@@ -44,37 +46,54 @@ int main() {
 	//auto window_inverted = hwlib::window_invert(my_window);
 	//hwlib::window_ostream window_out = hwlib::window_ostream(window_inverted, f);
 
-	auto rainbow_f = rainbow_font("HELO", hwlib::location(0, 0), f);
-	my_window << rainbow_f;
-	
-	auto rainbow_f1 = rainbow_font("WRLD", hwlib::location(0, 8), f);
-	my_window << rainbow_f1;
+	auto rainbow_f = rainbow_text_label("A", hwlib::location(0, 4), f);
+	//my_window << rainbow_f;
+
+	auto rainbow_sliding = updating_text_slide(rainbow_f);
+	my_window << rainbow_sliding;
+
+	//	auto rainbow_f1 = rainbow_font("MINE", hwlib::location(0, 8), f);
+	//	my_window << rainbow_f1;
 
 	//animator << "Frik\nadel";
 	//window_out << "Frik\nadel";
 
-//	int i = 0;
+	//	int i = 0;
 	hwlib::location l = hwlib::location(0, 0);
+	
+	hwlib::location offset = hwlib::location(0, 0);
 
 	while (true) {
-//		i++;
-//		i %= 140;
+		offset  = offset + hwlib::location(1, 0);
+		rainbow_sliding.offset = offset;
+		
+		//hwlib::cout << offset.x << hwlib::endl;
+		
+		if (offset.x >= 32) {
+			offset = hwlib::location(0, 0);
+			rainbow_sliding.offset = offset;
+		}
+		
+		
+		
+		//		i++;
+		//		i %= 140;
 
 		//hwlib::cout << i << ' ' << r << ' ' << g << ' ' << b << hwlib::endl;
 
 		my_window.show_frame();
 
-//		for (uint_fast8_t i = 0; i < 14; i++) {
-//			for (uint_fast8_t x = 0; x < 32; x++) {
-//				
-//
-//				for (uint_fast8_t y = 0; y < 16; y++) {
-//					my_window.write(hwlib::location(x, y), rainbow[x % 14]);
-//				}
-//			}
-//
-//			my_window.show_frame();
-//		}
+		//		for (uint_fast8_t i = 0; i < 14; i++) {
+		//			for (uint_fast8_t x = 0; x < 32; x++) {
+		//
+		//
+		//				for (uint_fast8_t y = 0; y < 16; y++) {
+		//					my_window.write(hwlib::location(x, y), rainbow[x % 14]);
+		//				}
+		//			}
+		//
+		//			my_window.show_frame();
+		//		}
 
 		//		for (int i = 0; i < 32; i++) {
 		//			my_window.write(l, hwlib::color(r, g, b));
