@@ -22,7 +22,7 @@ class rgb_matrix : public graphics_drawer {
 	rgb_matrix_part top;
 	rgb_matrix_part bottom;
 
-	virtual void write_implementation(hwlib::location l, hwlib::color c, hwlib::buffering buf);
+	virtual void write_implementation(hwlib::location l, hwlib::color c, hwlib::buffering buf = hwlib::buffering::unbuffered);
 
 	public:
 	/**

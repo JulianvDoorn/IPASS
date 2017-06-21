@@ -5,7 +5,7 @@
 
 #include "rgb_matrix.hpp"
 
-void rgb_matrix::write_implementation(hwlib::location l, hwlib::color c, hwlib::buffering buf = hwlib::buffering::unbuffered) {
+void rgb_matrix::write_implementation(hwlib::location l, hwlib::color c, hwlib::buffering buf) {
 	// downscales 8 bit color values to 2 bit color values due to PWM limitation
 	c = hwlib::color(c.red / 64, c.green / 64, c.blue / 64);
 	
