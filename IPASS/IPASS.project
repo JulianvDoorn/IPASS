@@ -39,8 +39,11 @@
     <File Name="rgb_matrix_port.hpp"/>
     <File Name="rgb_pins.hpp"/>
     <File Name="graphics_drawer.hpp"/>
-    <File Name="pixel_drop.hpp"/>
     <File Name="updating_drawable.hpp"/>
+    <File Name="image_invert.hpp"/>
+    <File Name="rainbow_font.hpp"/>
+    <File Name="rainbow.hpp"/>
+    <File Name="image_rainbow.hpp"/>
   </VirtualDirectory>
   <Settings Type="Dynamic Library">
     <GlobalSettings>

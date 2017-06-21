@@ -1,7 +1,8 @@
 #include "rgb_matrix.hpp"
 
 void rgb_matrix::write_implementation(hwlib::location l, hwlib::color c, hwlib::buffering buf = hwlib::buffering::unbuffered) {
-	c = hwlib::color(c.red, c.green, c.blue);
+	// downscales 8 bit color values to 2 bit color values due to PWM limitation
+	c = hwlib::color(c.red / 64, c.green / 64, c.blue / 64);
 	
 	if (l.y < 8) {
 		top.write(l, c);
@@ -11,11 +12,10 @@ void rgb_matrix::write_implementation(hwlib::location l, hwlib::color c, hwlib::
 }
 
 void rgb_matrix::show_frame() {
-	for (uint_fast16_t i = 0; i < drawings_c; i++) {
-		drawings[i]->draw(*this);
-	}
+	update_all();
+	draw_all();
 	
-	for (uint_fast8_t c = 1; c <= 4; c++) {
+	for (uint_fast8_t c = 1; c <= 3; c++) {
 		for (uint_fast8_t y = 0; y < 8; y++) {
 			port.output_enabled.set(0);
 
@@ -50,8 +50,6 @@ void rgb_matrix::loop() {
 		show_frame();
 	}
 }
-
-void rgb_matrix::flush() {}
 
 void rgb_matrix::clear(hwlib::buffering buf) {
 	for (uint_fast8_t y = 0; y < size.y; y++) {

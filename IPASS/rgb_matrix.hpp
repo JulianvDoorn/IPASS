@@ -5,25 +5,38 @@
 #include "graphics_drawer.hpp"
 
 class rgb_matrix : public graphics_drawer {
-	private:
 	rgb_matrix_port& port;
 	rgb_matrix_part top;
 	rgb_matrix_part bottom;
 	
 	virtual void write_implementation(hwlib::location l, hwlib::color c, hwlib::buffering buf);
 
-	public:
-	rgb_matrix(rgb_matrix_port& port) : graphics_drawer(hwlib::location(32, 16), hwlib::white, hwlib::black), port(port), top(port.rgb0), bottom(port.rgb1) {}
+public:
+	/**
+	 * @brief Constructs a hwlib::window subclass dedicated to drawing multi-color values to an RGB matrix panel
+	 * Link to the panel, since there is little product specfication an not even a useful s/n: https://www.adafruit.com/product/420
+	 * @param port rgb_matrix_port with the pin definitions
+	 */
+	rgb_matrix(rgb_matrix_port& port, hwlib::color fg = hwlib::white, hwlib::color bg = hwlib::black) : graphics_drawer(hwlib::location(32, 16), fg, bg), port(port), top(port.rgb0), bottom(port.rgb1) {}
 
+	/**
+	 * @brief Displays a 4 cycle PWM (25% duty-cycle precision) display onto the matrix
+	 */
 	void show_frame();
+	
+	/**
+	 * @brief Blocking function that keeps calling show_frame
+	 */
 	void loop();
 
-	virtual void flush();
-	virtual void clear(hwlib::buffering buf = hwlib::buffering::unbuffered);
+	/**
+	 * @brief Unimplemented in this window since if there was buffering the PWM wouldn't work correctly
+	 */
+	virtual void flush() {};
 	
-	rgb_matrix& operator<<(hwlib::drawable& drawing) {
-		drawings[drawings_c] = &drawing;
-		drawings_c++;
-		return *this;
-	}
+	/**
+	 * @brief Resets all the pixels to the background color specified inside the constructor
+	 * @param buf Doesn't affect anything
+	 */
+	virtual void clear(hwlib::buffering buf = hwlib::buffering::unbuffered);
 };

@@ -1,7 +1,9 @@
 #include <hwlib.hpp>
 
+#include "rainbow_font.hpp"
 #include "rgb_matrix.hpp"
 #include "rgb_pins.hpp"
+#include "rainbow.hpp"
 
 int main() {
 	// kill the watchdog
@@ -33,36 +35,57 @@ int main() {
 	auto my_window = rgb_matrix(my_rgb_port);
 
 	auto my_circle = hwlib::circle(hwlib::location(5, 5), 3, hwlib::blue, hwlib::black);
-	auto my_line = hwlib::line(hwlib::location(0, 0), hwlib::location(0, 3), hwlib::red);
+	auto my_line = hwlib::line(hwlib::location(0, 0), hwlib::location(0, 5), hwlib::red);
 
 	//my_window << my_line;
 
-	hwlib::location l = hwlib::location(0, 0);
 	auto f = hwlib::font_default_8x8();
 
-	hwlib::window_ostream window_out = hwlib::window_ostream(my_window, f);
+	//auto window_inverted = hwlib::window_invert(my_window);
+	//hwlib::window_ostream window_out = hwlib::window_ostream(window_inverted, f);
 
-	uint_fast8_t rgb = 1;
+	auto rainbow_f = rainbow_font("HELO", hwlib::location(0, 0), f);
+	my_window << rainbow_f;
+	
+	auto rainbow_f1 = rainbow_font("WRLD", hwlib::location(0, 8), f);
+	my_window << rainbow_f1;
+
+	//animator << "Frik\nadel";
+	//window_out << "Frik\nadel";
+
+//	int i = 0;
+	hwlib::location l = hwlib::location(0, 0);
 
 	while (true) {
-		for (int i = 0; i < 32; i++) {
-			my_window.write(l, hwlib::color(rgb >> 4 & 0b11, rgb >> 2 & 0b11, rgb & 0b11));
-			
-			if (l.x < 31) {
-				l = l + hwlib::location(1, 0);
-			} else if (l.y >= 15) {
-				l = hwlib::location(0, 0);
-				rgb++;
-				hwlib::cout << rgb << hwlib::endl;
-			} else {
-				l = hwlib::location(0, l.y + 1);
-			}
-		}
+//		i++;
+//		i %= 140;
 
-		if (rgb > 0b111111) {
-			rgb = 1;
-		}
+		//hwlib::cout << i << ' ' << r << ' ' << g << ' ' << b << hwlib::endl;
 
 		my_window.show_frame();
+
+//		for (uint_fast8_t i = 0; i < 14; i++) {
+//			for (uint_fast8_t x = 0; x < 32; x++) {
+//				
+//
+//				for (uint_fast8_t y = 0; y < 16; y++) {
+//					my_window.write(hwlib::location(x, y), rainbow[x % 14]);
+//				}
+//			}
+//
+//			my_window.show_frame();
+//		}
+
+		//		for (int i = 0; i < 32; i++) {
+		//			my_window.write(l, hwlib::color(r, g, b));
+		//
+		//			if (l.x < 31) {
+		//				l = l + hwlib::location(1, 0);
+		//			} else if (l.y >= 15) {
+		//				l = hwlib::location(0, 0);
+		//			} else {
+		//				l = hwlib::location(0, l.y + 1);
+		//			}
+		//		}
 	}
 }
