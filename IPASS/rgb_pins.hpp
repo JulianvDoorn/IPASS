@@ -1,3 +1,8 @@
+//          Copyright Julian van Doorn 2017.
+// Distributed under the Boost Software License, Version 1.0.
+//    (See accompanying file LICENSE_1_0.txt or copy at
+//          http://www.boost.org/LICENSE_1_0.txt)
+
 #pragma once
 #include <hwlib.hpp>
 
@@ -15,7 +20,7 @@ class rgb_pins : public hwlib::port_out {
 	hwlib::pin_out& g;
 	hwlib::pin_out& b;
 
-public:
+	public:
 	/**
 	 * @copydoc hwlib::port_out::number_of_pins()
 	 */
@@ -33,7 +38,7 @@ public:
 		g.set(c & 0b010, buf);
 		b.set(c & 0b001, buf);
 	}
-	
+
 	/**
 	 * @copydoc hwlib::port_out::flush()
 	 */
@@ -49,5 +54,5 @@ public:
 	 * @param g pin_out for green values
 	 * @param b pin_out for blue values
 	 */
-	rgb_pins(hwlib::target::pin_out& r, hwlib::target::pin_out& g,hwlib:: target::pin_out& b) : r(r), g(g), b(b){};
+	rgb_pins(hwlib::target::pin_out& r, hwlib::target::pin_out& g, hwlib::target::pin_out& b) : r(r), g(g), b(b){};
 };
