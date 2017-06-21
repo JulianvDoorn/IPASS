@@ -1,8 +1,0 @@
-Debug/
-Release/
-*.o
-*.bin
-*.elf
-*.ld
-*.map
-bmptk_fixed_size_stack.c
