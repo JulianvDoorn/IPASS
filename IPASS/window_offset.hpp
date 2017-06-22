@@ -19,10 +19,20 @@ class window_offset : public hwlib::window {
 	hwlib::location offset;
 
 	void write_implementation(const hwlib::location pos, const hwlib::color col, hwlib::buffering buf = hwlib::buffering::unbuffered) {
-		slave.write(pos + offset, col, buf);
+		hwlib::location new_pos = pos + offset;
+
+		if (new_pos.x > size.x) {
+			new_pos = new_pos - hwlib::location(size.x, 0);
+		}
+
+		if (new_pos.y > size.y) {
+			new_pos = new_pos - hwlib::location(0, size.y);
+		}
+
+		slave.write(new_pos, col, buf);
 	}
 
-public:
+	public:
 	/**
 	 * @brief Constructs a window_offset decorator
 	 * @param slave hwlib::window to apply effect to

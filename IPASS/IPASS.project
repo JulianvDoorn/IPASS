@@ -54,6 +54,7 @@
     <File Name="updating_text_label.hpp"/>
     <File Name="updating_text_slide.hpp"/>
     <File Name="text_slide.hpp"/>
+    <File Name="defines.hpp"/>
   </VirtualDirectory>
   <Settings Type="Dynamic Library">
     <GlobalSettings>
