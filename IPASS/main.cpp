@@ -41,80 +41,32 @@ int main() {
 	auto my_rgb_port = rgb_matrix_port(rgb0, rgb1, my_address_port, clock, latch, output_enabled);
 	auto my_window = rgb_matrix(my_rgb_port);
 
-	auto my_circle = hwlib::circle(hwlib::location(5, 5), 3, hwlib::blue, hwlib::black);
-	auto my_line = hwlib::line(hwlib::location(0, 0), hwlib::location(0, 5), hwlib::red);
-
-	//my_window << my_line;
-
 	auto f = hwlib::font_default_8x8();
-
-	//auto window_inverted = hwlib::window_invert(my_window);
-	//hwlib::window_ostream window_out = hwlib::window_ostream(window_inverted, f);
-
-	auto rainbow_f = rainbow_text_label("A", hwlib::location(0, 4), f);
-	//my_window << rainbow_f;
-
+	auto rainbow_f = rainbow_text_label("bier", hwlib::location(0, 0), f);
 	auto rainbow_sliding = updating_text_slide(rainbow_f);
 	my_window << rainbow_sliding;
 
-	//	auto rainbow_f1 = rainbow_font("MINE", hwlib::location(0, 8), f);
-	//	my_window << rainbow_f1;
-
-	//animator << "Frik\nadel";
-	//window_out << "Frik\nadel";
-
-	//	int i = 0;
-	hwlib::location l = hwlib::location(0, 0);
+	auto text_l = text_label("hier", hwlib::location(0, 8), f);
+	my_window << text_l;
 
 	hwlib::location offset = hwlib::location(0, 0);
 
 	while (true) {
 		static uint_fast8_t b = 0;
 
-		if (b == 5) {
+		if (b == 4) {
 			offset = offset + hwlib::location(1, 0);
 			rainbow_sliding.offset = offset;
 			b = 0;
 		}
-		
-		b++;
 
-		//hwlib::cout << offset.x << hwlib::endl;
+		b++;
 
 		if (offset.x >= 32) {
 			offset = hwlib::location(0, 0);
 			rainbow_sliding.offset = offset;
 		}
 
-		//		i++;
-		//		i %= 140;
-
-		//hwlib::cout << i << ' ' << r << ' ' << g << ' ' << b << hwlib::endl;
-
 		my_window.show_frame();
-
-		//		for (uint_fast8_t i = 0; i < 14; i++) {
-		//			for (uint_fast8_t x = 0; x < 32; x++) {
-		//
-		//
-		//				for (uint_fast8_t y = 0; y < 16; y++) {
-		//					my_window.write(hwlib::location(x, y), rainbow[x % 14]);
-		//				}
-		//			}
-		//
-		//			my_window.show_frame();
-		//		}
-
-		//		for (int i = 0; i < 32; i++) {
-		//			my_window.write(l, hwlib::color(r, g, b));
-		//
-		//			if (l.x < 31) {
-		//				l = l + hwlib::location(1, 0);
-		//			} else if (l.y >= 15) {
-		//				l = hwlib::location(0, 0);
-		//			} else {
-		//				l = hwlib::location(0, l.y + 1);
-		//			}
-		//		}
 	}
 }
