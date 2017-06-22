@@ -22,8 +22,19 @@ class text_label : public hwlib::drawable {
 
 	virtual void draw_implementation(hwlib::window& w, const hwlib::image& letter, const hwlib::location l_pos, hwlib::buffering buf);
 
-	public:
+public:
+	/**
+	 * @brief Construcsts a text_label with the given arguments
+	 * @param text Text to display
+	 * @param pos Position to display at
+	 * @param f Font to display with
+	 */
 	text_label(const char* text, hwlib::location pos, hwlib::font& f) : drawable(pos), text(text), pos(pos), f(f) {}
 
+	/**
+	 * @brief Draws the text
+	 * @param w Window to draw the text to
+	 * @param buf Determines if this invoke is buffered
+	 */
 	void draw(hwlib::window& w, hwlib::buffering buf = hwlib::buffering::unbuffered);
 };

@@ -20,13 +20,23 @@ class updating_text_slide : public text_slide, public updating_drawable {
 	private:
 	updating_text_label& slave;
 
-	public:
+public:
+	/**
+	 * @brief Constructs all superclasses and slave
+	 * @param slave updating_text_label to apply effect to
+	 */
 	updating_text_slide(updating_text_label& slave) : text_slide(slave), updating_drawable(slave), slave(slave) {}
 
+	/**
+	 * @copydoc text_slide::draw
+	 */
 	void draw(hwlib::window& w, hwlib::buffering buf = hwlib::buffering::unbuffered) {
 		text_slide::draw(w, buf);
 	}
 
+	/**
+	 * @copydoc updating_drawable::update
+	 */
 	void update() override {
 		slave.update();
 	}

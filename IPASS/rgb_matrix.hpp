@@ -43,7 +43,7 @@ class rgb_matrix : public graphics_drawer {
 	void loop();
 
 	/**
-	 * @brief Unimplemented in this window since if there was buffering the PWM wouldn't work correctly
+	 * @brief Does nothing in this window since if there was buffering the PWM wouldn't work correctly
 	 */
 	virtual void flush(){}
 

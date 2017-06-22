@@ -23,7 +23,10 @@ class rainbow_text_label : public updating_text_label {
 
 	void draw_implementation(hwlib::window& w, const hwlib::image& letter, hwlib::location l_pos, hwlib::buffering buf) override;
 
-	public:
+public:
+	/**
+	 * @copydoc updating_text_label::updating_text_label
+	 */
 	rainbow_text_label(const char* text, hwlib::location pos, hwlib::font& f) : updating_text_label(text, pos, f) {}
 
 	/**

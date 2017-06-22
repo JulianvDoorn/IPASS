@@ -17,7 +17,7 @@
 class image_rainbow : public hwlib::image {
 	private:
 	const hwlib::image& slave;
-	uint_fast8_t& iteration_n;
+	uint_fast8_t& color_offset;
 
 	hwlib::color get_implementation(hwlib::location pos) const override;
 
@@ -25,9 +25,9 @@ class image_rainbow : public hwlib::image {
 	/**
 	 * @brief Constructor for a rainbow overlay decorator for images
 	 * @details
-	 * iteration_n is made a reference so it becomes more easy to synchronise multiple rainbow decorators
+	 * color_offset is made a reference so it becomes more easy to synchronise multiple rainbow decorators
 	 * @param slave Slave image to apply decorator to
-	 * @param iteration_n Reference to uint_fast8_t to set the rainbow position
+	 * @param color_offset Reference to uint_fast8_t to set the rainbow position
 	 */
-	image_rainbow(const hwlib::image& slave, uint_fast8_t& iteration_n) : hwlib::image(slave), slave(slave), iteration_n(iteration_n) {}
+	image_rainbow(const hwlib::image& slave, uint_fast8_t& color_offset) : hwlib::image(slave), slave(slave), color_offset(color_offset) {}
 };

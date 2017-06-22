@@ -9,8 +9,8 @@
 #include "rainbow_text_label.hpp"
 #include "rgb_matrix.hpp"
 #include "rgb_pins.hpp"
-#include "updating_text_slide.hpp"
 #include "text_slide.hpp"
+#include "updating_text_slide.hpp"
 
 int main() {
 	// kill the watchdog
@@ -65,22 +65,27 @@ int main() {
 
 	//	int i = 0;
 	hwlib::location l = hwlib::location(0, 0);
-	
+
 	hwlib::location offset = hwlib::location(0, 0);
 
 	while (true) {
-		offset  = offset + hwlib::location(1, 0);
-		rainbow_sliding.offset = offset;
+		static uint_fast8_t b = 0;
+
+		if (b == 5) {
+			offset = offset + hwlib::location(1, 0);
+			rainbow_sliding.offset = offset;
+			b = 0;
+		}
 		
+		b++;
+
 		//hwlib::cout << offset.x << hwlib::endl;
-		
+
 		if (offset.x >= 32) {
 			offset = hwlib::location(0, 0);
 			rainbow_sliding.offset = offset;
 		}
-		
-		
-		
+
 		//		i++;
 		//		i %= 140;
 

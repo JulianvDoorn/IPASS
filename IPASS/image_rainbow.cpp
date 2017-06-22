@@ -7,7 +7,7 @@
 
 hwlib::color image_rainbow::get_implementation(hwlib::location pos) const {
 	if (slave[pos].rgb() != 0x000000) {
-		return rainbow[(pos.x + pos.y + iteration_n) % 14];
+		return rainbow[(pos.x + pos.y + color_offset) % 14];
 	} else {
 		return hwlib::black;
 	}
