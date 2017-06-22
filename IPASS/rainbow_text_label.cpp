@@ -15,6 +15,8 @@ void rainbow_text_label::draw_implementation(hwlib::window& w, const hwlib::imag
 void rainbow_text_label::update() {
 	iteration++;
 
+
+	// Adjusts color_offset only every 3 update cycles
 	if (iteration >= 3) {
 		color_offset++;
 		color_offset %= 14;
