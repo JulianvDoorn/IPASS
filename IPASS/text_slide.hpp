@@ -36,7 +36,7 @@ public:
 	 * @brief Constructs superclass and slave
 	 * @param slave updating_text_label to apply effect to
 	 */
-	text_slide(updating_text_label& slave) : text_label(slave), slave(slave) {}
+	text_slide(text_label& slave) : text_label(slave), slave(slave) {}
 
 	/**
 	 * @copydoc text_label::draw
