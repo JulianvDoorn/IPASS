@@ -21,11 +21,11 @@ class window_offset : public hwlib::window {
 	void write_implementation(const hwlib::location pos, const hwlib::color col, hwlib::buffering buf = hwlib::buffering::unbuffered) {
 		hwlib::location new_pos = pos + offset;
 
-		if (new_pos.x > size.x) {
+		if (new_pos.x >= size.x) {
 			new_pos = new_pos - hwlib::location(size.x, 0);
 		}
 
-		if (new_pos.y > size.y) {
+		if (new_pos.y >= size.y) {
 			new_pos = new_pos - hwlib::location(0, size.y);
 		}
 
