@@ -10,7 +10,7 @@ void rgb_matrix::write_implementation(hwlib::location l, hwlib::color c, hwlib::
 	// downscales 8 bit color values to 2 bit color values due to PWM limitation
 	// 2^8 represents the max value of an 8 bit value (256), I would've used UINT_FAST8_MAX but that value is 'only' 255
 	// the formula (2^8 / 2^x) calculates a divider to downscale the color appropriately
-	c = hwlib::color(c.red / (2 ^ 8 / 2 ^ pwm_color_bit_size), c.green / (2 ^ 8 / 2 ^ pwm_color_bit_size), c.blue / (2 ^ 8 / 2 ^ pwm_color_bit_size));
+	c = hwlib::color(c.red / pwm_color_downscale_divisor, c.green / pwm_color_downscale_divisor, c.blue / pwm_color_downscale_divisor);
 
 	if (l.y < 8) {
 		top.write(l, c);
