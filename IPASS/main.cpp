@@ -42,11 +42,11 @@ int main() {
 	auto my_window = rgb_matrix(my_rgb_port);
 
 	auto f = hwlib::font_default_8x8();
-	auto rainbow_f = rainbow_text_label("bier", hwlib::location(0, 0), f);
+	auto rainbow_f = rainbow_text_label("Hi", hwlib::location(0, 0), f);
 	auto rainbow_sliding = updating_text_slide(rainbow_f);
 	my_window << rainbow_sliding;
 
-	auto text_l = text_label("hier", hwlib::location(0, 8), f);
+	auto text_l = text_label(" hi ", hwlib::location(0, 8), f);
 	my_window << text_l;
 
 	hwlib::location offset = hwlib::location(0, 0);
@@ -54,7 +54,7 @@ int main() {
 	while (true) {
 		static uint_fast8_t b = 0;
 
-		if (b == 4) {
+		if (b == 8) {
 			offset = offset + hwlib::location(1, 0);
 			rainbow_sliding.offset = offset;
 			b = 0;
