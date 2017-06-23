@@ -1,1 +1,1 @@
-Deze repository bevat de huiswerk/practicaopgaven van Julian van Doorn
+Deze repository bevat het IPASS TI project van Julian van Doorn
