@@ -9,9 +9,11 @@
 #############################################################################
 
 # settings for Arduino Due projects
-TARGET            := arduino_due
-SERIAL_PORT       ?= $(shell find /dev/ -name "ttyACM*")
-CONSOLE_BAUDRATE  := 2400
+TARGET            ?= arduino_due
+SERIAL_PORT       ?= COM8
+CONSOLE_BAUDRATE  ?= 2400
+STACK_SIZE        ?= 81920
+HEAP              ?= BMPTK
 
-# defer to the Makefile.shared
-include           $(RELATIVE)/Makefile.shared
+# defer to the Makefile.link
+include           $(RELATIVE)/Makefile.link

@@ -29,30 +29,30 @@
   <Description/>
   <Dependencies/>
   <VirtualDirectory Name="src">
-    <File Name="main.cpp"/>
-    <File Name="rgb_matrix.cpp"/>
-    <File Name="graphics_drawer.cpp"/>
-    <File Name="image_invert.cpp"/>
-    <File Name="image_rainbow.cpp"/>
-    <File Name="rainbow_text_label.cpp"/>
     <File Name="text_label.cpp"/>
+    <File Name="rgb_matrix.cpp"/>
+    <File Name="rainbow_text_label.cpp"/>
+    <File Name="main.cpp"/>
+    <File Name="image_rainbow.cpp"/>
+    <File Name="image_invert.cpp"/>
+    <File Name="graphics_drawer.cpp"/>
   </VirtualDirectory>
   <VirtualDirectory Name="include">
-    <File Name="rgb_matrix.hpp"/>
-    <File Name="rgb_matrix_part.hpp"/>
-    <File Name="rgb_matrix_port.hpp"/>
-    <File Name="rgb_pins.hpp"/>
-    <File Name="graphics_drawer.hpp"/>
+    <File Name="window_offset.hpp"/>
+    <File Name="updating_text_slide.hpp"/>
+    <File Name="updating_text_label.hpp"/>
     <File Name="updating_drawable.hpp"/>
-    <File Name="image_invert.hpp"/>
+    <File Name="text_slide.hpp"/>
+    <File Name="text_label.hpp"/>
+    <File Name="rgb_pins.hpp"/>
+    <File Name="rgb_matrix_port.hpp"/>
+    <File Name="rgb_matrix_part.hpp"/>
+    <File Name="rgb_matrix.hpp"/>
+    <File Name="rainbow_text_label.hpp"/>
     <File Name="rainbow.hpp"/>
     <File Name="image_rainbow.hpp"/>
-    <File Name="text_label.hpp"/>
-    <File Name="rainbow_text_label.hpp"/>
-    <File Name="window_offset.hpp"/>
-    <File Name="updating_text_label.hpp"/>
-    <File Name="updating_text_slide.hpp"/>
-    <File Name="text_slide.hpp"/>
+    <File Name="image_invert.hpp"/>
+    <File Name="graphics_drawer.hpp"/>
     <File Name="defines.hpp"/>
   </VirtualDirectory>
   <Settings Type="Dynamic Library">
@@ -73,7 +73,6 @@
       <Linker Options="" Required="yes"/>
       <ResourceCompiler Options="" Required="no"/>
       <General OutputFile="" IntermediateDirectory="./Debug" Command="sudo make" CommandArguments="run" UseSeparateDebugArgs="no" DebugArguments="" WorkingDirectory="$(ProjectPath)" PauseExecWhenProcTerminates="yes" IsGUIProgram="no" IsEnabled="yes"/>
-      <BuildSystem Name="Default"/>
       <Environment EnvVarSetName="&lt;Use Defaults&gt;" DbgSetName="&lt;Use Defaults&gt;">
         <![CDATA[]]>
       </Environment>
@@ -111,8 +110,7 @@
       </Compiler>
       <Linker Options="-O2" Required="yes"/>
       <ResourceCompiler Options="" Required="no"/>
-      <General OutputFile="" IntermediateDirectory="./Release" Command="sudo make" CommandArguments="run" UseSeparateDebugArgs="no" DebugArguments="" WorkingDirectory="$(ProjectPath)" PauseExecWhenProcTerminates="yes" IsGUIProgram="no" IsEnabled="yes"/>
-      <BuildSystem Name="Default"/>
+      <General OutputFile="" IntermediateDirectory="./Release" Command="python $(WorkspacePath)/Make.py -r run" CommandArguments="" UseSeparateDebugArgs="no" DebugArguments="" WorkingDirectory="$(ProjectPath)" PauseExecWhenProcTerminates="yes" IsGUIProgram="no" IsEnabled="yes"/>
       <Environment EnvVarSetName="&lt;Use Defaults&gt;" DbgSetName="&lt;Use Defaults&gt;">
         <![CDATA[]]>
       </Environment>
@@ -124,9 +122,9 @@
       <PreBuild/>
       <PostBuild/>
       <CustomBuild Enabled="yes">
-        <RebuildCommand>make clean build</RebuildCommand>
-        <CleanCommand>make clean</CleanCommand>
-        <BuildCommand>make build</BuildCommand>
+        <RebuildCommand>python $(WorkspacePath)/Make.py clean build</RebuildCommand>
+        <CleanCommand>python $(WorkspacePath)/Make.py clean</CleanCommand>
+        <BuildCommand>python $(WorkspacePath)/Make.py build</BuildCommand>
         <PreprocessFileCommand/>
         <SingleFileCommand/>
         <MakefileGenerationCommand/>
