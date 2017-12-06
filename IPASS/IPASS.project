@@ -31,7 +31,6 @@
   <VirtualDirectory Name="src">
     <File Name="main.cpp"/>
     <File Name="rgb_matrix.cpp"/>
-    <File Name="makefile"/>
     <File Name="graphics_drawer.cpp"/>
     <File Name="image_invert.cpp"/>
     <File Name="image_rainbow.cpp"/>

@@ -9,17 +9,17 @@
 #############################################################################
 
 # the location of the ti software directory
-TI-SOFTWARE       := /home/julian/Documents/oopc-practica
+TI-SOFTWARE       := $(TISOFTWARE)
 
 # include Catch 
 SEARCH            += $(TI-SOFTWARE)/Catch/include
 
 # include hwlib
 HWLIB             ?= $(TI-SOFTWARE)/hwlib
-include           $(HWLIB)/makefile.inc
+include           $(HWLIB)/Makefile.inc
 
 # set BMPTK to the bmptk subdirectory
 BMPTK := $(TI-SOFTWARE)/bmptk
 
 # Defer to the bmptk/Makefile.inc to do the work
-include $(BMPTK)/makefile.inc
+include $(BMPTK)/Makefile.inc

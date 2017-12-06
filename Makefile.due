@@ -14,4 +14,4 @@ SERIAL_PORT       ?= $(shell find /dev/ -name "ttyACM*")
 CONSOLE_BAUDRATE  := 2400
 
 # defer to the Makefile.shared
-include           $(RELATIVE)/makefile.shared
+include           $(RELATIVE)/Makefile.shared
